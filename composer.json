@@ -1,0 +1,40 @@
+{
+	"name" : "aidphp/framework",
+	"type" : "library",
+	"description" : "Aidphp Framework",
+	"license" : "MIT",
+	"keywords" : [
+		"framework",
+		"middleware",
+		"psr-7",
+		"psr-15",
+		"psr-11"
+	],
+	"authors" : [{
+			"name" : "Maxime Bourmaut"
+		}
+	],
+	"require" : {
+		"php" : "^7.1.0",
+		"aidphp/http" : "^1.0",
+		"aidphp/http-middleware" : "^1.0",
+		"aidphp/routing-middleware" : "^1.0",
+		"aidphp/error" : "^1.0",
+		"aidphp/pipeline" : "^1.0",
+		"aidphp/template-interop" : "^1.0",
+		"aidphp/di" : "^1.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "^7.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Aidphp\\Framework\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Test\\Aidphp\\Framework\\" : "test/"
+		}
+	}
+}
