@@ -22,6 +22,7 @@
 		"aidphp/error" : "^1.0",
 		"aidphp/pipeline" : "^1.0",
 		"aidphp/template-interop" : "^1.0",
+		"aidphp/emitter-interop" : "^1.0",
 		"aidphp/di" : "^1.0"
 	},
 	"require-dev" : {

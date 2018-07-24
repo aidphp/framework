@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Aidphp\Framework\Emitter;
+use Interop\Emitter\EmitterInterface;
 
 class EmitterTest extends TestCase
 {
@@ -45,8 +46,10 @@ class EmitterTest extends TestCase
             ->willReturn($stream);
 
         $emitter = new Emitter();
+        $this->assertInstanceOf(EmitterInterface::class, $emitter);
+
         ob_start();
-        $this->assertSame(true, $emitter->emit($res));
+        $this->assertSame(null, $emitter->emit($res));
         $body = ob_get_clean();
         $this->assertContains($content, $body);
     }
