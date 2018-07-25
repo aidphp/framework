@@ -16,14 +16,16 @@
 	],
 	"require" : {
 		"php" : "^7.1.0",
-		"aidphp/http" : "^1.0",
-		"aidphp/http-middleware" : "^1.0",
-		"aidphp/routing-middleware" : "^1.0",
+		"psr/container" : "^1.0",
+		"psr/http-message" : "^1.0",
+		"psr/http-server-handler" : "^1.0",
+		"psr/http-server-middleware" : "^1.0",
+		"http-interop/http-factory" : "^0.4",
+		"aidphp/template-interop" : "^1.0",
+		"aidphp/http-interop" : "^1.0",
 		"aidphp/error" : "^1.0",
 		"aidphp/pipeline" : "^1.0",
-		"aidphp/template-interop" : "^1.0",
-		"aidphp/emitter-interop" : "^1.0",
-		"aidphp/di" : "^1.0"
+		"aidphp/routing-middleware" : "^1.0"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "^7.0"

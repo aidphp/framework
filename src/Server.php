@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Aidphp\Framework;
 
-use Aidphp\Http\ServerRequestFactoryInterface;
+use Interop\Http\PhpServerRequestFactoryInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Aidphp\Error\ErrorHandlerInterface;
-use Interop\Emitter\EmitterInterface;
+use Interop\Http\EmitterInterface;
 use Throwable;
 
 class Server
@@ -17,7 +17,7 @@ class Server
     protected $errorHandler;
     protected $emitter;
 
-    public function __construct(ServerRequestFactoryInterface $requestFactory, RequestHandlerInterface $handler, ErrorHandlerInterface $errorHandler, EmitterInterface $emitter)
+    public function __construct(PhpServerRequestFactoryInterface $requestFactory, RequestHandlerInterface $handler, ErrorHandlerInterface $errorHandler, EmitterInterface $emitter)
     {
         $this->requestFactory = $requestFactory;
         $this->handler = $handler;
@@ -29,7 +29,7 @@ class Server
     {
         try
         {
-            $res = $this->handler->handle($this->requestFactory->createFromGlobals());
+            $res = $this->handler->handle($this->requestFactory->createServerRequestFromGlobals());
         }
         catch (Throwable $e)
         {

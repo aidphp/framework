@@ -18,6 +18,7 @@ class ErrorInfoTest extends TestCase
 
         $errorInfo = new ErrorInfo($e);
 
+        $this->assertFalse($errorInfo->isDebug());
         $this->assertSame('', $errorInfo->getMethod());
         $this->assertSame('', $errorInfo->getUri());
         $this->assertSame(get_class($e), $errorInfo->getType());
@@ -35,6 +36,12 @@ class ErrorInfoTest extends TestCase
         $this->assertSame($e->getFile(), $errorInfo->getFile());
         $this->assertSame($e->getLine(), $errorInfo->getLine());
         $this->assertSame($e->getTrace(), $errorInfo->getTrace());
+    }
+
+    public function testConstructorWithDebug()
+    {
+        $errorInfo = new ErrorInfo($this->createMock(Throwable::class), true);
+        $this->assertTrue($errorInfo->isDebug());
     }
 
     public function testConstructorWithRequest()
@@ -63,9 +70,7 @@ class ErrorInfoTest extends TestCase
         $req->expects($this->once())->method('getServerParams')->willReturn([]);
         $req->expects($this->once())->method('getAttributes')->willReturn([]);
 
-        $e = $this->createMock(Throwable::class);
-
-        $errorInfo = new ErrorInfo($e, $req);
+        $errorInfo = new ErrorInfo($this->createMock(Throwable::class), false, $req);
         $this->assertSame($url, $errorInfo->getUri());
         $this->assertSame($method, $errorInfo->getMethod());
         $this->assertSame([

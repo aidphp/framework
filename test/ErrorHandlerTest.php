@@ -52,8 +52,7 @@ class ErrorHandlerTest extends TestCase
             ->with(
                 ErrorHandler::TEMPLATE,
                 $this->callback(function ($subject) {
-                    return isset($subject['debug']) && $subject['debug'] === false &&
-                    isset($subject['error']) && $subject['error'] instanceof ErrorInfo;
+                    return isset($subject['error']) && $subject['error'] instanceof ErrorInfo;
                 })
             )
             ->willReturn($content);

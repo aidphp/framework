@@ -6,10 +6,10 @@ namespace Test\Aidphp\Framework;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
-use Aidphp\Http\ServerRequestFactoryInterface;
+use Interop\Http\PhpServerRequestFactoryInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Aidphp\Error\ErrorHandlerInterface;
-use Interop\Emitter\EmitterInterface;
+use Interop\Http\EmitterInterface;
 use Aidphp\Framework\Server;
 use RuntimeException;
 
@@ -24,7 +24,7 @@ class ServerTest extends TestCase
     public function setUp()
     {
         $this->res = $this->createMock(ResponseInterface::class);
-        $this->requestFactory = $this->createMock(ServerRequestFactoryInterface::class);
+        $this->requestFactory = $this->createMock(PhpServerRequestFactoryInterface::class);
         $this->handler = $this->createMock(RequestHandlerInterface::class);
         $this->errorHandler = $this->createMock(ErrorHandlerInterface::class);
         $this->emitter = $this->createMock(EmitterInterface::class);
@@ -48,7 +48,7 @@ class ServerTest extends TestCase
         $exp = new RuntimeException();
 
         $this->requestFactory->expects($this->once())
-            ->method('createFromGlobals')
+            ->method('createServerRequestFromGlobals')
             ->will($this->throwException($exp));
 
         $this->handler->expects($this->never())

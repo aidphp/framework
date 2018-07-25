@@ -32,7 +32,7 @@ class ErrorHandler implements ErrorHandlerInterface
     {
         $res = $this->factory->createResponse(500);
 
-        $res->getBody()->write($this->renderer->render($this->template, ['debug' => $this->debug, 'error' => new ErrorInfo($e, $req)]));
+        $res->getBody()->write($this->renderer->render($this->template, ['error' => new ErrorInfo($e, $this->debug, $req)]));
 
         return $res;
     }

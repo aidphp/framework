@@ -10,12 +10,19 @@ use Psr\Http\Message\ServerRequestInterface;
 class ErrorInfo
 {
     private $e;
+    private $debug;
     private $req;
 
-    public function __construct(Throwable $e, ServerRequestInterface $req = null)
+    public function __construct(Throwable $e, bool $debug = false, ServerRequestInterface $req = null)
     {
-        $this->e   = $e;
-        $this->req = $req;
+        $this->e     = $e;
+        $this->debug = $debug;
+        $this->req   = $req;
+    }
+
+    public function isDebug(): bool
+    {
+        return $this->debug;
     }
 
     public function getUri(): string
