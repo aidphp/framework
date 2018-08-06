@@ -7,7 +7,7 @@ namespace Test\Aidphp\Framework;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Interop\Http\Factory\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Aidphp\Framework\NotFoundHandler;
 use Interop\Renderer\RendererInterface;
 use Psr\Http\Message\StreamInterface;

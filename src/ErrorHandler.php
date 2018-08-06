@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Aidphp\Framework;
 
 use Aidphp\Error\ErrorHandlerInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Interop\Renderer\RendererInterface;
-use Interop\Http\Factory\ResponseFactoryInterface;
 use Throwable;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;

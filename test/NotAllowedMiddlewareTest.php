@@ -7,7 +7,7 @@ namespace Test\Aidphp\Framework;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Interop\Http\Factory\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Aidphp\Framework\NotAllowedMiddleware;
 use Aidphp\Routing\Middleware\MethodMiddleware;
